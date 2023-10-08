@@ -1,17 +1,36 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
+
     const navOptions = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/menu">Our Menu</Link></li>
-        <li><Link to="/order/salad">Order Food</Link></li>
+        <li><Link className="text-2xl font-bold" to="/">Home</Link></li>
+        <li><Link className="text-2xl font-bold" to="/menu">Our Menu</Link></li>
+        <li><Link className="text-2xl font-bold" to="/order/salad">Order Food</Link></li>
+        <li><Link className="text-2xl font-bold" to="/secret">Secret</Link></li>
+        {
+            user ? <>
+                {/* <span>{user?.displayName}</span> */}
+                <button onClick={handleLogOut} className="btn btn-ghost text-2xl font-bold">LogOut</button>
+            </> : <>
+                <li><Link className="text-2xl font-bold" to="/login">Login</Link></li>
+            </>
+        }
         
     </>
 
     return (
         <>
-            <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-white">
+            <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-2xl bg-black text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
