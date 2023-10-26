@@ -12,7 +12,7 @@ const FoodCard = ({item}) => {
     const location = useLocation();
 
     const handleAddToCart = (item) =>{
-        const cartItem = {menuItem: _id,name,image,price,email: user.email}
+        const cartItem = {menuItem: _id,name,image,price,email: user?.email}
         console.log(item);
         if(user){
             fetch('http://localhost:5000/carts',{

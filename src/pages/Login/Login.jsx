@@ -26,7 +26,7 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        //console.log(email, password);
         signIn(email, password)
             .then(result => {
                 const user = result.user;
@@ -57,7 +57,7 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>Bistro Boss | Login</title>
+                <title>Rangdhonu | Login</title>
             </Helmet>
             <div className="login-background-image hero min-h-screen bg-base-200 ">
                 <div className="hero-content flex-col md:flex-row-reverse gap-x-20">

@@ -15,7 +15,7 @@ const DashBoard = () => {
         
         <div className="drawer drawer-mobile ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center justify-center">
+            <div className="drawer-content ">
                 <Outlet></Outlet>
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
@@ -27,8 +27,8 @@ const DashBoard = () => {
                         isAdmin ?
                             <>
                                 <li><NavLink className='font-bold' to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
-                                <li><NavLink className='font-bold' to="/dashboard/reservations"> <FaUtensils></FaUtensils> Add Items</NavLink></li>
-                                <li><NavLink className='font-bold' to="/dashboard/history"><FaWallet></FaWallet> Manage Items</NavLink></li>
+                                <li><NavLink className='font-bold' to="/dashboard/additems"> <FaUtensils></FaUtensils> Add Items</NavLink></li>
+                                <li><NavLink className='font-bold' to="/dashboard/manageitems"><FaWallet></FaWallet> Manage Items</NavLink></li>
                                 <li><NavLink className='font-bold' to="/dashboard/history"><FaBook></FaBook> Manage Bookings</NavLink></li>
                                 <li><NavLink className='font-bold' to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
                             </>
