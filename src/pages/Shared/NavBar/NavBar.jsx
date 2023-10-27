@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FaShoppingCart } from 'react-icons/fa';
 import useCart from "../../../hooks/useCart";
+//import useAdmin from "../../../hooks/useAdmin";
 
 const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const [cart] = useCart();
+    //const [isAdmin] = useAdmin();
+    // console.log(isAdmin)
 
     const handleLogOut = () => {
         logOut()
@@ -16,24 +19,19 @@ const NavBar = () => {
     }
 
     const navOptions = <>
-        <li><Link className="text-2xl font-bold" to="/">Home</Link></li>
-        <li><Link className="text-2xl font-bold" to="/menu">Our Menu</Link></li>
-        <li><Link className="text-2xl font-bold" to="/order/salad">Order Food</Link></li>
-        <li><Link className="text-2xl font-bold" to="/secret">Secret</Link></li>
+        <li><Link className="text-xl font-bold" to="/">Home</Link></li>
+        <li><Link className="text-xl font-bold" to="/menu">Our Menu</Link></li>
+        <li><Link className="text-xl font-bold" to="/order/salad">Order Food</Link></li>
+
+        <li><Link className="text-xl font-bold" to="/dashboard/adminhome">Admin <br></br>Dashboard</Link></li><li><Link className="text-xl font-bold" to="/dashboard/userhome">User<br></br>Dashboard</Link></li>
+
         <li>
             <Link to="/dashboard/mycart"><button className="btn gap-3">
                 <FaShoppingCart></FaShoppingCart>
                 <div className="badge badge-secondary">+{cart?.length || 0}</div>
             </button></Link>
         </li>
-        {
-            user ? <>
-                {/* <span>{user?.displayName}</span> */}
-                <button onClick={handleLogOut} className="btn btn-ghost text-2xl font-bold">LogOut</button>
-            </> : <>
-                <li><Link className="text-2xl font-bold" to="/login">Login</Link></li>
-            </>
-        }
+
     </>
 
     return (
@@ -48,7 +46,7 @@ const NavBar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <h1 className="text-3xl font-bold">Green Restaurant</h1>
+                    <h1 className="text-5xl font-bold">Green Restaurant</h1>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -56,7 +54,16 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    {
+                        user ?
+                            <>
+                                <button onClick={handleLogOut} className="btn btn-ghost text-2xl font-bold">LogOut</button>
+                            </>
+                            :
+                            <>
+                                <Link className="px-10" to="/login"> <button className="text-2xl font-bold btn btn-ghost">Login</button></Link>
+                            </>
+                    }
                 </div>
             </div>
         </>

@@ -8,7 +8,6 @@ import Order from "../pages/Order/Order/Order";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
-import Secret from "../pages/Shared/Secret/Secret";
 import DashBoard from "../Layout/DashBoard";
 import MyCart from "../pages/Dashboard/MyCart";
 import AllUsers from "../pages/Dashboard/AllUsers";
@@ -16,7 +15,9 @@ import AddItem from "../pages/Dashboard/AddItem";
 import AdminRoute from "../Routes/AdminRoute";
 import ManageItems from "../pages/Dashboard/ManageItems";
 import Payment from "../pages/Dashboard/Payment";
-
+import UserHome from "../pages/Dashboard/UserHome";
+import AdminHome from "../pages/Dashboard/AdminHome";
+import ReservationForm from "../pages/Dashboard/ReservationForm";
 
   export const router = createBrowserRouter([
     {
@@ -43,10 +44,6 @@ import Payment from "../pages/Dashboard/Payment";
           path: 'signup',
           element: <SignUp></SignUp>
         },
-        {
-          path: 'secret',
-          element: <PrivateRoute><Secret></Secret></PrivateRoute>
-        }
       ]
     },
     {
@@ -58,11 +55,25 @@ import Payment from "../pages/Dashboard/Payment";
             element: <MyCart></MyCart>
         },
         {
-          path: 'payment',
-          element : <Payment></Payment>
+          path: 'userhome',
+          element : <UserHome></UserHome>
 
         },
+        {
+          path: 'payment',
+          element : <Payment></Payment>
+        },
+        {
+          path: 'reservations',
+          element : <ReservationForm></ReservationForm>
+        },
+
         //Admin routes
+       
+        {
+          path: 'adminhome',
+          element: <AdminHome></AdminHome>
+        },
         {
             path: 'allusers',
             element: <AdminRoute><AllUsers></AllUsers></AdminRoute>

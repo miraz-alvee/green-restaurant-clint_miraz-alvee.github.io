@@ -92,7 +92,7 @@ const Login = () => {
                                 <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='text-center py-4 mb-4'><small>New Here? <Link className='text-bold underline' to="/signup">Create an account</Link> </small></p>
+                        <p className='font-bold text-center py-4 mb-4'><small>New Here? <Link className='text-bold underline' to="/signup">Create an account</Link> </small></p>
                         <SocialLogin></SocialLogin>
                     </div>
                 </div>
